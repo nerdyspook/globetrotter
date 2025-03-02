@@ -64,3 +64,43 @@ Globetrotter is an engaging, quiz-style web application where players test their
 - `postcss`
 
 ---
+
+## Project Setup Instructions
+
+Follow these steps to set up and run the project locally:
+
+### 1. Clone the Repository
+
+```sh
+git clone https://github.com/nerdyspook/globetrotter.git
+cd globetrotter
+```
+
+### 2. Install Dependencies
+
+```sh
+pnpm install
+```
+
+### 3. Create a `.env` File
+
+Create a `.env` file in the root directory of the project and add the following environment variables:
+
+```sh
+NEXT_PUBLIC_BASE_URL=<your_base_url>
+MONGODB_URI=<your_mongodb_connection_string>
+```
+
+### 4. Run the Development Server
+
+```sh
+pnpm run dev
+```
+
+### 5. Access the Application
+
+The project should now be running locally. Open your browser and navigate to:
+
+```
+http://localhost:3000
+```
