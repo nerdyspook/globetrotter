@@ -8,14 +8,6 @@ Globetrotter is an engaging, quiz-style web application where players test their
 
 - [Core Features](#core-features)
 - [Technology Stack](#technology-stack)
-- [Architecture & Folder Structure](#architecture--folder-structure)
-- [Setup & Installation](#setup--installation)
-- [Environment Variables](#environment-variables)
-- [API Endpoints](#api-endpoints)
-- [Dynamic OG Image Generation](#dynamic-og-image-generation)
-- [Troubleshooting & Deployment Notes](#troubleshooting--deployment-notes)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
