@@ -68,7 +68,6 @@ export default function QuizPage() {
   const startQuiz = async () => {
     try {
       if (!username) return;
-      resetGame();
       const newSessionId = await startGame(username); // fetch 50 questions
       setSessionId(newSessionId);
       setIsGameStarted(true);
