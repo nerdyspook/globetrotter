@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Globetrotter – The Ultimate Travel Guessing Game
+Globetrotter is a fun and engaging quiz-style web application where users guess famous travel destinations based on cryptic clues, hints, fun facts, and trivia. With features such as dynamic challenges, live feedback animations, and a friendly "Challenge a Friend" functionality, Globetrotter offers an immersive experience that tests and rewards your global knowledge!
 
-## Getting Started
+Core Features
+Interactive Quiz Flow:
 
-First, run the development server:
+Multiple-Choice Questions: Users answer questions based on travel clues, hints, and trivia.
+Immediate Feedback: Correct answers trigger confetti animations and reveal fun facts; wrong answers display a heartbreak animation.
+Checkpoints & Lives: The game is divided into checkpoints (e.g., 20 questions per checkpoint) with 15 lives total. Wrong answers deduct lives and 4 consecutive correct answers (without extra hints) award an extra life.
+Hints & Trivia:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+First Hint: The first hint is always visible.
+Extra Hint: A "Get More Hint" button calls the backend API for an additional hint.
+Fun Facts: Display all fun facts/trivia related to the destination after a correct answer.
+Challenge a Friend:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Challenge Creation: Users can challenge friends by sharing a dynamic challenge link via WhatsApp.
+Dynamic OG Image: A dynamic image is generated (using Next.js OG image generation) that shows the challenger’s name and high score.
+Challenge Details Page: When a friend clicks the shared link, they can see the challenger’s details and join the challenge by playing the quiz.
+Profile Management:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Ephemeral Play: Users can play without registering.
+Save Profile: Users have the option to save their profile by setting a password, preserving their high score for future sessions.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+API Endpoints
+POST /api/start-game:
+Starts a new game session with the provided username.
 
-## Learn More
+GET /api/get-next-question?sessionId=...:
+Retrieves the next question for the game session.
 
-To learn more about Next.js, take a look at the following resources:
+POST /api/guess-question:
+Submits an answer and returns updated score, lives, and question data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+POST /api/request-hint-two:
+Returns an extra hint for the current question.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+POST /api/create-challenge:
+Creates a new challenge with the final score and returns a challengeId.
 
-## Deploy on Vercel
+GET /api/get-challenge/[challengeId]:
+Retrieves challenge details for a given challengeId.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+GET /api/challenge-image/[challengeId]:
+Dynamically generates an OG image for sharing the challenge.
