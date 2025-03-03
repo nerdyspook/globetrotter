@@ -26,6 +26,8 @@ async function dbConnect() {
     });
   }
   cached.conn = await cached.promise;
+
+  console.log("MongoDb connection successfull");
   return cached.conn;
 }
 
